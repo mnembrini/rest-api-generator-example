@@ -1,14 +1,23 @@
+buildscript {
+
+  ext {
+    restApiVersion = '2.3.12'
+  }
+
+  dependencies {
+    classpath "ch.silviowangler.rest:gradle-java-rest-api:2.3.13"
+  }
+}
 plugins {
   id("groovy")
   id("com.github.johnrengelman.shadow") version "7.1.0"
   id("io.micronaut.application") version "2.0.6"
-  id('ch.silviowangler.restapi') version "2.3.13"
 }
 
 version = "0.1"
 group = "com.example"
 
-
+apply plugin: 'ch.silviowangler.restapi'
 micronaut {
   runtime("netty")
   testRuntime("spock2")
