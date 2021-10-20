@@ -1,0 +1,31 @@
+pluginManagement {
+  repositories {
+    mavenCentral()
+    maven {
+      url = uri("https://maven.pkg.github.com/saw303/gradle-java-rest-api")
+      credentials {
+        // access properties available to settings.gradle
+        Map<String, Object> props = settings.extensions.extraProperties.properties
+        username props['gpr.user'] as String ?: System.getenv('GH_USERNAME')
+        password props['gpr.key'] as String ?: System.getenv('GH_TOKEN')
+      }
+    }
+    gradlePluginPortal()
+  }
+}
+
+dependencyResolutionManagement {
+  repositories {
+    mavenCentral()
+    maven {
+      url = uri("https://maven.pkg.github.com/saw303/gradle-java-rest-api")
+      credentials {
+        // access properties available to settings.gradle
+        Map<String, Object> props = settings.extensions.extraProperties.properties
+        username props['gpr.user'] as String ?: System.getenv('GH_USERNAME')
+        password props['gpr.key'] as String ?: System.getenv('GH_TOKEN')
+      }
+    }
+  }
+}
+rootProject.name = "rest-api-generator"
